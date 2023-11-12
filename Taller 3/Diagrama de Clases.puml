@@ -1,0 +1,105 @@
+@startuml
+skin rose
+left to right direction
+
+Package Modules{
+
+
+Class Solicitud{
+-Solicitud: String
+-personaEnvia: String
+-personaRecibe: String
++Solicitud(Solicitud: String, personaEnvia: String, personaRecibe: String)
++setSolicitud(solicitud : String): String
++getSolicitud(): String
++getPersonaEnvia():String
++getPersonaRecibe():String
+}
+
+Class Cliente{
+-Usuario: String
+-nombre: String
+-apellido: String
+-contrasena: String
+-edad: int
+-estado: String
+-matchRecibidas: String
+-match: String
+-matchEnviados: String
++Cliente(Usuario: String, nombre: String,apellido: String, contrasena:String, edad: int, estado:String, matchRecibidas:String, match:String,matchEnviadas: String)
++getUsuario(): String
++getNombre(): String
++getApellido(): String
++getContrasena(): String
++getEdad(): int
++getEstado(): String
++getMatchRecibidas(): String
++getMatch(): String
++getMatchEnviadas(): String
++setContrasena(contrasena: String): String
++setEdad(edad:int): int
++setEstado(estado: String): String
++setMatch(match: String): String
++setMatchEnviadas(matchEnviadas: String):String
++setMatchRecibidas(matchRecibidas: String) : String
+}
+
+
+
+}
+
+Package Services{
+
+interface Sistema{
+  + menu(): void
+  + opcion1():void
+  + mostrarUsuarios(): void
+  + mostrarUsuariosAscendente(): void
+  + opcion4(): void
+  + solicitudEmparejamientoEnviadas(): void
+  +solicitudEmparejamientoRecibidas(): void
+  +realizarSolicitudEmparejamiento(): void
+  +aceptarSolicitudEmparejamiento(): void
+  +rechazarSolicitudEmparejamiento(): void
+  +cancelarEmparejamiento(): void
+}
+
+Class SistemaImpl{
++cargarArchivo(): void
++cargarArchivo1(): void
++guardarArchivo(): void
++guardarArchivo1(): void
++imprimirMenu(): void
++imprimirOpcion4(): void
++imprimirOpcion1(): void
++bubbleSort(listaUsuarios : List <Cliente>): void
++cambiarDescripcion(): void
++cambiarContrasena(): void
++cambiarEdad(): void
++aceptarSolicitud(nombreUsuarioEmparejamiento: String): void
++rechazarSolicitud(nombreUsuarioEmparejamiento: String): void
++pendienteSolicitud(nombreUsuarioEmparejamiento: String): void
+
+
+
+}
+
+
+SistemaImpl ..|> Sistema : Implementa >
+
+Cliente --* SistemaImpl : - ListaUsuarios : List<Cliente>
+Solicitud --* SistemaImpl : - ListaSolicitud : List<Solicitud>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+@enduml

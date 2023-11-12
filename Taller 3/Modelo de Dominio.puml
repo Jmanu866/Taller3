@@ -1,0 +1,33 @@
+@startuml
+
+
+Entity Usuario{
+Usuario
+nombre
+apellido
+contraseña
+edad
+estado
+}
+
+
+
+Entity Solicitud{
+Estado
+}
+
+Entity Match{
+Usuario1
+Usuario2
+
+}
+note left : En caso de ser aceptada este seria un Match
+
+Usuario "2" --> "1" Solicitud : contiene
+
+Solicitud "1" --> "1" Match : Acepta 
+
+
+
+
+@enduml
